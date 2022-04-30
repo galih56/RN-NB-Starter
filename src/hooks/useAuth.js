@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import SecureStorage from 'react-native-encrypted-storage';
+import EncryptedStorage from 'react-native-encrypted-storage';
 
 import {BASE_URL} from '@env';
 import {createAction} from '../utils/createAction.js';
@@ -45,11 +45,11 @@ export function useAuth() {
           email: data.user.email,
           token: data.jwt,
         };
-        await SecureStorage.setItem('user', JSON.stringify(user));
+        await EncryptedStorage.setItem('user', JSON.stringify(user));
         dispatch(createAction('SET_USER', user));
       },
       logout: async () => {
-        await SecureStorage.removeItem('user');
+        await EncryptedStorage.removeItem('user');
         dispatch(createAction('REMOVE_USER'));
       },
       register: async (email, password) => {
@@ -65,7 +65,7 @@ export function useAuth() {
   );
   React.useEffect(() => {
     sleep(2000).then(() => {
-      SecureStorage.getItem('user').then(user => {
+      EncryptedStorage.getItem('user').then(user => {
         if (user) {
           dispatch(createAction('SET_USER', JSON.parse(user)));
         }

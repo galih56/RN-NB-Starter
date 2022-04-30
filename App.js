@@ -13,6 +13,7 @@ import {darkTheme} from './src/themes/dark';
 import {ThemeContext} from './src/contexts/ThemeContext';
 import {StatusBar} from 'react-native';
 // import {useDarkMode} from 'react-native-dark-mode';
+// import 'react-native-gesture-handler';
 
 const RootStack = createStackNavigator();
 

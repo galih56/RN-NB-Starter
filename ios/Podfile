@@ -19,6 +19,8 @@ target 'balikpapan_sw_nb' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'balikpapan_sw_nbTests' do
     inherit! :complete
     # Pods for testing
